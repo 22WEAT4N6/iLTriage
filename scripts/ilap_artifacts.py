@@ -4,7 +4,6 @@
 # to the 'tosearch' data structure.
 
 import traceback
-
 from time import process_time, gmtime, strftime
 
 from scripts.artifacts.lastBuild import get_lastBuild, get_iTunesBackupInfo

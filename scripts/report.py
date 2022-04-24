@@ -58,6 +58,11 @@ def get_icon_name(category, artifact):
         icon = 'book'
     elif category == 'BLUETOOTH':
         icon = 'bluetooth'
+    elif category == 'BUMBLE':
+        if artifact == 'BUMBLE - MESSAGES':
+            icon = 'message-circle'
+        if artifact == 'BUMBLE - ACCOUNT DETAILS':
+            icon = 'user'
     elif category == 'CALENDAR':
         icon = 'calendar'
     elif category == 'CALL HISTORY':
@@ -111,6 +116,11 @@ def get_icon_name(category, artifact):
             icon = 'map'
         elif artifact == 'PD PLACE CACHE':
             icon = 'map-pin'
+    elif category == 'GMAIL':
+        if artifact == 'GMAIL - LABEL DETAILS':
+            icon = 'mail'
+        if artifact == 'GMAIL - OFFLINE SEARCH':
+            icon = 'search'
     elif category == 'GOOGLE DUO':
         if artifact == 'GOOGLE DUO - CALL HISTORY':
             icon = 'phone-call'
@@ -157,6 +167,10 @@ def get_icon_name(category, artifact):
     elif category == 'KIK':
         if artifact == 'KIK MESSAGES':
             icon = 'message-square'
+        if artifact == 'KIK GROUP ADMINISTRATORS':
+            icon = 'user-plus'
+        if artifact == 'KIK LOCAL ACCOUNT':
+            icon = 'user-check'
         if artifact == 'KIK USERS':
             icon = 'user'
         if artifact == 'KIK USERS IN GROUPS':
@@ -387,6 +401,12 @@ def generate_report(reportfolderbase, time_in_secs, time_HMS, extraction_type, i
         shutil.copyfile(os.path.join(__location__, "chats.css"), os.path.join(elements_folder, "chats.css"))
         shutil.copytree(os.path.join(__location__, "MDB-Free_4.13.0"), os.path.join(elements_folder, 'MDB-Free_4.13.0'),
                         copy_function=copy_no_perm)
+        
+        #Copies custom.css & sidebard.js files to local directory
+        shutil.copyfile(os.path.join(__location__, "custom.css"), os.path.join(elements_folder, "custom.css"))
+        shutil.copyfile(os.path.join(__location__, "sidebar.js"), os.path.join(elements_folder, "sidebar.js"))
+        
+        
     except shutil.Error:
         print("shutil reported an error. Maybe due to recursive directory copying.")
         if os.path.exists(os.path.join(elements_folder, 'MDB-Free_4.13.0')):
